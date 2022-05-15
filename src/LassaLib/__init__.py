@@ -62,6 +62,7 @@ def show_value(value: typing.Any, tab_number: int = 0) -> None:
     :param tab_number: The default number of tabs to put in front of the printout.
     :return: None
     """
+
     def sort_key(dico):
         if isinstance(dico, dict):
             liste_key = list(dico.keys())
@@ -94,7 +95,9 @@ def show_value(value: typing.Any, tab_number: int = 0) -> None:
             print("\t" * tab_number + f"{text_editing.color.COLOR_GREEN if COLOR else ''}{key}: ", end='')
             show_value(value[key], tab_number + 1)
     else:
-        print(f" : {text_editing.color.COLOR_YELLOW if COLOR else ''}{value}{text_editing.color.STOP_COLOR if COLOR else ''}")
+        print(f" : {text_editing.color.COLOR_YELLOW if COLOR else ''}"
+              f"{value}{text_editing.color.STOP_COLOR if COLOR else ''}")
+
 
 def space_number(number: typing.Union[int, float], spacing: str = ' ') -> str:
     """
@@ -132,7 +135,7 @@ def last_iteration(iteration_text: str, txt: str) -> int | None:
         return len(txt) - (len(liste[-1]) + len(iteration_text))
 
 
-def replace_last(sub_string: str, new_string: str, string: str):
+def replace_last(sub_string: str, new_string: str, string: str) -> str:
     """
     Replaces the last iteration of the substring entered with the string chosen in the quoted string.
     :param sub_string: The substring entered.
