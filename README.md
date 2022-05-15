@@ -29,8 +29,7 @@ Python library by LassaInora.
 - [Personal email](mailto:axelleviandier@lassainora.fr)
 - [Professional email](mailto:lassainora@lassainora.fr)
 --------
-<p id="methods">Methods:</p>
--------
+## <p id="methods">Methods:</p>
 
 ### <p id="enter">enter(__prompt: str = '', __type: type = int) -> typing.Any</p>
 
