@@ -1,88 +1,128 @@
-# <p id="title">LassaLib</p>
+# LassaLib
 
-Convenient function set.
+#### _Convenient function set_
 
-Python library by LassaInora.
+Author:
+-------
+- [Axelle (LassaInora) VIANDIER](mailto:axelleviandier@lassainora.fr)
+
+License:
+--------
+- GNU General Public License v3.0
+
+Version:
+--------
+- `3.0.0`
 
 --------
 ## Summary
 
 - **[Links](#links)**
-- **[Contacts](#contact)**
+- **[Contacts](#contacts)**
 - **[Methods](#methods)**
-  - ***[enter(__prompt: str = '', __type: type = int) -> typing.Any](#enter)***
-  - ***[str_object(obj: typing.Any) -> str](#str_object)***
-  - ***[show_value(value: typing.Any, tab_number: int = 0) -> None](#show_value)***
-  - ***[space_number(number: typing.Union[int, float], spacing: str = ' ') -> str](#space_number)***
-  - ***[last_iteration(iteration_text: str, txt: str) -> int | None](#last_iteration)***
-  - ***[replace_last(sub_string: str, new_string: str, string: str) -> str](#replace_last)***
+  - ***[detailed_object(value, *, detailed=False, __tab_number=0)](#detailed_object)***
+  - ***[display_iterable(iterable, *, __tab_number=0)](#display_iterable)***
+  - ***[enter(__prompt='', __type=int)](#enter)***
+  - ***[last_iteration(list_of_think, obj)](#last_iteration)***
+  - ***[menu(choices, title, *, can_back=False, prompt='>> ', desc=None)](#menu)***
+  - ***[position(pos, txt, length, fill)](#position)***
+  - ***[replace_last(sub_string, new_string, string)](#replace_last)***
+  - ***[space_number(number, *, separator=' ')](#space_number)***
 --------
 
-## <p id="links">Links</p>
+## Links
 
 - [Personal GitHub](https://github.com/LassaInora)
-- [GitHub project](https://github.com/LassaInora/Timedate)
-- [Website project](https://lassainora.fr/projet/librairies/Timedate)
+- [GitHub project](https://github.com/LassaInora/LassaLib)
+- [Website project](https://lassainora.fr/projets/librairies/LassaLib)
+- [Pypi project](https://pypi.org/project/LassaLib/)
 
-## <p id="contact">Contacts</p>
-
-- [Personal email](mailto:axelleviandier@lassainora.fr)
-- [Professional email](mailto:lassainora@lassainora.fr)
 --------
-## <p id="methods">Methods:</p>
+## Methods
 
-### <p id="enter">enter(__prompt: str = '', __type: type = int) -> typing.Any</p>
+- ### detailed_object
+  #### _Shows information about an object._
 
-- This function allows to input any type.
-  - __prompt (str) : Text to print before recovery.
-  - __type (type) : The type to recover.
-
-+ Can return:
-  + Any type.
-
-### <p id="str_object">str_object(obj: typing.Any) -> str</p>
-
-- Create a string of all info about an object regardless of its class.
-  - obj (Any) : An object from Any type or class.
-
-+ Can return:
-  + str
-
-### <p id="show_value">show_value(value: typing.Any, tab_number: int = 0) -> None</p>
-
-- Prints in the terminal all the elements of a list, a dictionary or a tuple and its sub-elements.</br> 
-  Prints in the terminal the other types and class.
+  Parameters:
   - value (Any) : A value of any type or class.
-  - tab_number (int) : The default number of tabs to put in front of the printout.
+  - detailed (bool) : Should the function send detailed content?
+  - __tab_number (int) : The default number of tabs to put in front of the printout.
 
-+ Can return:
-  + None
+- ### display_iterable
+  #### _Displays iterables in a human-readable way._
 
-### <p id="space_number">space_number(number: typing.Union[int, float], spacing: str = ' ') -> str</p>
+  Parameters:
+  - iterable (list or tuple or set or dict) : An iterable.
+  - __tab_number (int) : The default number of tabs to put in front of the printout.
 
-- Separate with character defines the number entered every 3 digits.
-  - number (int or float) : A value.
-  - spacing (str) : A character.
+  Return:
+  - None : Print the iterable to the console
 
-+ Can return:
-  + str
+- ### enter
+  #### _This function allows to input any type._
 
-### <p id="last_iteration">last_iteration(iteration_text: str, txt: str) -> int | None</p>
+  Parameters:
+  - __prompt (str) : Text to print before recovery.
+  - __tab_number (int) : The default number of tabs to put in front of the printout.
 
-- Return the index of the last iteration on string.
-  - iteration_text (str) : The searched iteration
-  - txt (str) : The text to search in.
+  Raise:
+  - TypeError : If __type is not in return type.
 
-+ Can return:
-  + int
-  + None
+  Return:
+  - bool or complex or float or int or list or set or slice or str : Print the iterable to the console
 
-### <p id="replace_last">replace_last(sub_string: str, new_string: str, string: str) -> str</p>
+- ### last_iteration
+  #### _Return the index of the last iteration on list._
 
-- Replaces the last iteration of the substring entered with the string chosen in the quoted string.
+  Parameters:
+  - list_of_think (str/list/tuple) : The searched iteration.
+  - obj (Any) : The object to search in.
+
+  Return:
+  - int : The index of last iteration.
+
+- ### menu
+  #### _Create a menu._
+
+  Parameters:
+  - choices (list) : The liste of choice.
+  - title (str) : Title of menu.
+  - desc (str) : Description of menu.
+  - prompt (str) : The prompt before choice.
+  - can_back (bool) : Menu affiche back choice at 0)?
+
+  Return:
+  - int: The index of choice with 'Back' in index 0 and other index + 1.
+
+- ### position
+  #### _Push in the position the text with correct length._
+
+  Parameters:
+  - pos (str) : left, center or right.
+  - txt (str) : The text to move.
+  - length (int) : The length of the final string.
+  - fill (str) : String filler.
+
+  Return:
+  - str : The string filled.
+
+- ### replace_last
+  #### _Replaces the last iteration of the substring entered with the string chosen in the quoted string._
+
+  Parameters:
   - sub_string (str) : The substring entered.
   - new_string (str) : The string chosen.
   - string (str) : The quoted string.
 
-+ Can return:
-  + str
+  Return:
+  - str : The quoted string with the last iteration of the substring replaced by the chosen string.
+
+- ### space_number
+  #### _Separate with character defines the number entered every 3 digits._
+
+  Parameters:
+  - number (int, float) : A value.
+  - separator (str) : A character.
+
+  Return:
+  - str : A string of number separate.
