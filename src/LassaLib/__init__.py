@@ -4,7 +4,7 @@ Author:
     Axelle (LassaInora) VIANDIER
     axelleviandier@lassainora.fr
 Version:
-    3.0.0
+    3.0.1
 """
 
 
@@ -291,7 +291,7 @@ def display_iterable(iterable, *, __tab_number=0):
         if type(value) in [list, tuple, set, dict]:
             display_iterable(value, __tab_number=__tab_number+1)
         else:
-            print(i)
+            print(value)
     print("\t"*__tab_number + s[1])
 
 
