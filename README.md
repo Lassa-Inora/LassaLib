@@ -12,7 +12,7 @@ License:
 
 Version:
 --------
-- `3.0.1`
+- `3.1.0`
 
 --------
 ## Summary
@@ -89,7 +89,8 @@ Version:
   - title (str) : Title of menu.
   - desc (str) : Description of menu.
   - prompt (str) : The prompt before choice.
-  - can_back (bool) : Menu affiche back choice at 0)?
+  - can_back (bool) : The menu displays the choice of return at 0)?
+  - name_back (str) : Name of back.
 
   Return:
   - int: The index of choice with 'Back' in index 0 and other index + 1.

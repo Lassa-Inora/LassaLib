@@ -374,7 +374,7 @@ def last_iteration(list_of_think, obj):
         return len(mem) - 1
 
 
-def menu(choices, title, *, can_back=False, prompt='>> ', desc=None):
+def menu(choices, title, *, can_back=False, prompt='>> ', desc=None, name_back='Back'):
     """Create a menu.
 
     Parameters:
@@ -382,7 +382,8 @@ def menu(choices, title, *, can_back=False, prompt='>> ', desc=None):
         title (str) : Title of menu.
         desc (str) : Description of menu.
         prompt (str) : The prompt before choice.
-        can_back (bool) : Menu affiche back choice at 0)?
+        can_back (bool) : The menu displays the choice of return at 0)?
+        name_back (str) : Name of back.
 
     Return:
         int: The index of choice with 'Back' in index 0 and other index + 1.
@@ -390,24 +391,24 @@ def menu(choices, title, *, can_back=False, prompt='>> ', desc=None):
 
     """
     Model:
-          ╔═════════════╗       
-    ╔═════╣  Menu name  ╠══════╗
-    ║     ╚═════════════╝      ║
-    ║ ┌──────────────────────┐ ║
-    ║ │ Description of menu  │ ║
-    ║ └──────────────────────┘ ║
-    ║                          ║
-    ║ ┌───┐ ┌────────────────┐ ║
-    ║ │ 1 ├─┤ Text of choice │ ║
-    ║ └───┘ └────────────────┘ ║
-    ║ ┌───┐ ┌────────────────┐ ║
-    ║ │ 2 ├─┤ Text of choice │ ║
-    ║ └───┘ └────────────────┘ ║
-    ╟--------------------------╢
-    ║ ┌───┐ ┌──────┐           ║
-    ║ │ 0 ├─┤ Back │           ║
-    ║ └───┘ └──────┘           ║
-    ╚══════════════════════════╝
+            ╔═════════════╗         
+    ╔═══════╣  Menu name  ╠════════╗
+    ║       ╚═════════════╝        ║
+    ║   ┌──────────────────────┐   ║
+    ║   │ Description of menu  │   ║
+    ║   └──────────────────────┘   ║
+    ║                              ║
+    ║ ┌───┐ ┌────────────────┐     ║
+    ║ │ 1 ├─┤ Text of choice │     ║
+    ║ └───┘ └────────────────┘     ║
+    ║ ┌───┐ ┌────────────────┐     ║
+    ║ │ 2 ├─┤ Text of choice │     ║
+    ║ └───┘ └────────────────┘     ║
+    ╟------------------------------╢
+    ║ ┌───┐ ┌────────────────────┐ ║
+    ║ │ 0 ├─┤ Return choice text │ ║
+    ║ └───┘ └────────────────────┘ ║
+    ╚══════════════════════════════╝
     """
 
     def choice_button(num, texte):
@@ -435,14 +436,15 @@ def menu(choices, title, *, can_back=False, prompt='>> ', desc=None):
         18,
         len(f"╔══╣  {title}  ╠══╗"),
         len(f"║ │ {' ' * largeur_desc} │ ║"),
-        len(f"║ │ {' ' * length_num} ├─┤ {' ' * largeur_choice} │ ║")
+        len(f"║ │ {' ' * length_num} ├─┤ {' ' * largeur_choice} │ ║"),
+        len(f"║ │ 0 ├─┤ {name_back} │ ║"),
     )
     length_choice = largeur - 13 - len(str(len(choices)))
 
     back_button = (
-            "║" + position('left', " ┌───┐ ┌──────┐ ", largeur - 2, ' ') + "║\n" +
-            "║" + position('left', " │ 0 ├─┤ Back │ ", largeur - 2, ' ') + "║\n" +
-            "║" + position('left', " └───┘ └──────┘ ", largeur - 2, ' ') + "║"
+            "║" + position('left', f" ┌───┐ ┌─{'─' * len(name_back)}─┐ ", largeur - 2, ' ') + "║\n" +
+            "║" + position('left', f" │ 0 ├─┤ {name_back} │ ", largeur - 2, ' ') + "║\n" +
+            "║" + position('left', f" └───┘ └─{'─' * len(name_back)}─┘ ", largeur - 2, ' ') + "║"
     )
 
     # =-= =-= =< Menu >= =-= =-=
