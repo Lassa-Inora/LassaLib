@@ -429,11 +429,14 @@ def menu(choices, title, *, can_back=False, prompt='>> ', desc=None, name_back='
                 "║" + b + "║"
         )
 
+    if len(choices) == 0:
+        can_back = True
+
     largeur_choice = max([len(desc) for desc in choices]) if len(choices) > 0 else 0
     largeur_desc = max([len(word) for word in desc.split()]) if desc else 0
     length_num = len(str(len(choices)))
     largeur = max(
-        18,
+        14,
         len(f"╔══╣  {title}  ╠══╗"),
         len(f"║ │ {' ' * largeur_desc} │ ║"),
         len(f"║ │ {' ' * length_num} ├─┤ {' ' * largeur_choice} │ ║"),
